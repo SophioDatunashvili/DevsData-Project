@@ -1,0 +1,24 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'CSS/event_list.css' %}">
+
+<h1>Events</h1>
+
+<h2><a href="{% url 'delete_reservation' %}">Delete Reservation</a></h2>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Thumbnail</th>
+
+  </tr>
+  {% for event in events %}
+  <tr>
+    <td>{{ event.title }}</td>
+    <td>{{ event.start_date }}</td>
+    <td>{{ event.end_date }}</td>
+    <td><img class="img" src="{{ event.thumbnail.url }}" alt="{{ event.title }}"></td>
+    <td><a href="{% url 'event-detail' event.id %}">Registration</a></td>
+  </tr>
+  {% endfor %}
+</table>

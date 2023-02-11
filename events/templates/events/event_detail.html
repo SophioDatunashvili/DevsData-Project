@@ -1,0 +1,18 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'CSS/event_detail.css' %}">
+
+{% block content %}
+    <h2>{{ event.title }}</h2>
+    <p>Start Date: {{ event.start_date }}</p>
+    <p>End Date: {{ event.end_date }}</p>
+    <img src="{{ event.thumbnail.url }}" alt="Event Thumbnail">
+
+    <h3>Make a Reservation</h3>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Reserve">
+    </form>
+{% endblock %}
+
+

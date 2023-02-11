@@ -1,0 +1,9 @@
+<form method="post">
+  {% csrf_token %}
+    <h2>Enter Reservation Code</h2>
+  <input type="text" name="reservation_code">
+  <button type="submit">Delete Reservation</button>
+</form>
+
+
+<a href="{% url 'event-list' %}">Return To Events</a>
